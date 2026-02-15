@@ -23,7 +23,10 @@ import {
 } from 'lucide-react'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
+
+import { motion } from 'framer-motion'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -37,26 +40,36 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="bg-background text-foreground overflow-hidden">
+    <div className="bg-background text-foreground overflow-hidden relative">
+      {/* Background Effects */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] opacity-20 animate-pulse delay-700"></div>
+      </div>
 
       {/* 1. Hero Section: The Radical Reality of "The Next Chapter" */}
-      <section className="relative h-screen min-h-[600px] flex items-center justify-center px-6 overflow-hidden bg-[#020817]">
-        {/* Background Effects */}
+      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-[#020817] z-10">
+        {/* Hero Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#020817] via-[#0f172a] to-[#020817] z-0" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
-        <div className="relative z-10 max-w-4xl mx-auto w-full text-center space-y-6 pt-16">
+        <div className="relative z-10 max-w-4xl mx-auto w-full text-center space-y-4">
           <ScrollAnimation direction="up" delay={0.1}>
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white mb-2">
-              We Don't <span className="font-serif italic font-light text-blue-100">Motivate</span>.
-              <br />
-              We <span className="font-serif italic text-white relative inline-block">
-                Prepare
-                <svg className="absolute w-full h-3 -bottom-1 left-0 text-blue-500" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
-                </svg>
-              </span>.
-            </h1>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-white mb-2 filter drop-shadow-2xl">
+                We Don't <span className="font-serif italic font-light text-blue-100">Motivate</span>.
+                <br />
+                We <span className="font-serif italic text-white relative inline-block">
+                  Prepare
+                  <svg className="absolute w-full h-3 -bottom-1 left-0 text-blue-500" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
+                  </svg>
+                </span>.
+              </h1>
+            </motion.div>
           </ScrollAnimation>
 
           <ScrollAnimation direction="up" delay={0.2}>
@@ -65,15 +78,7 @@ export default function Home() {
             </p>
           </ScrollAnimation>
 
-          {/* <ScrollAnimation direction="up" delay={0.3}>
-            <div className="max-w-2xl mx-auto mb-6">
-              <p className="text-base md:text-lg text-white leading-relaxed max-w-3xl mx-auto mb-4 font-light">
-                “If you believe in depth over hype, clarity over noise, and responsibility over convenience, your next chapter begins here.”
-              </p>
-            </div>
-          </ScrollAnimation> */}
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-40">
             <Button size="lg" className="h-12 px-8 text-base bg-blue-600 text-white hover:bg-blue-500 rounded-full shadow-lg hover:shadow-blue-500/20 transition-all uppercase tracking-wide font-semibold" asChild>
               <Link href="/courses">
                 Begin Your Chapter <ChevronRight className="ml-2 h-4 w-4" />
@@ -84,39 +89,39 @@ export default function Home() {
       </section>
 
       {/* 2. The Context / Wicked Problem */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-16 px-6 bg-background/50 backdrop-blur-sm relative z-10">
         <div className="max-w-6xl mx-auto">
           <ScrollAnimation>
             <div className="mb-16 max-w-3xl mx-auto text-center">
               <div className="inline-block px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-600 text-xs font-semibold tracking-wide uppercase mb-4">
                 The Context
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">The "Wicked Problem"</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed font-light">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">The "Wicked Problem"</h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light">
                 To understand why we exist, you must understand the structural disconnect in India: the supply of degrees has outpaced the demand for skills.
               </p>
             </div>
           </ScrollAnimation>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-20">
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* The Employability Paradox */}
             <ScrollAnimation>
-              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 hover:bg-secondary/20 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-default">
+                <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
                   <TrendingDown className="w-6 h-6 text-red-500" />
                   The Employability Paradox
                 </h3>
                 <div className="space-y-6">
-                  <div className="p-4 bg-background rounded-xl border border-border shadow-sm">
-                    <h4 className="font-semibold mb-2 flex items-center gap-2 text-foreground">
+                  <div className="p-4 bg-background/50 rounded-xl border border-border shadow-sm">
+                    <h4 className="font-semibold mb-2 flex items-center gap-2 text-foreground text-lg">
                       <Users className="w-4 h-4 text-blue-500" /> Engineering Crisis
                     </h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       1.5 million engineers graduate annually, but <strong>only 10-17% are hired into core roles</strong>. The rest are underemployed or unemployed.
                     </p>
                   </div>
-                  <div className="p-4 bg-background rounded-xl border border-border shadow-sm">
-                    <h4 className="font-semibold mb-2 flex items-center gap-2 text-foreground">
+                  <div className="p-4 bg-background/50 rounded-xl border border-border shadow-sm">
+                    <h4 className="font-semibold mb-2 flex items-center gap-2 text-foreground text-lg">
                       <TrendingDown className="w-4 h-4 text-red-500" /> Hiring Decline
                     </h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
@@ -129,8 +134,8 @@ export default function Home() {
 
             {/* Why it's Wicked - Condensed */}
             <ScrollAnimation delay={0.1}>
-              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 flex flex-col justify-center">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 hover:bg-secondary/20 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-default flex flex-col justify-center">
+                <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
                   <AlertTriangle className="w-6 h-6 text-amber-500" />
                   Why it's "Wicked"
                 </h3>
@@ -153,8 +158,8 @@ export default function Home() {
 
           {/* AI Factor */}
           <ScrollAnimation>
-            <div className="bg-gradient-to-br from-indigo-900 via-blue-900 to-indigo-950 text-white p-10 rounded-3xl border border-indigo-500/30 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+            <div className="bg-gradient-to-br from-indigo-900 via-blue-900 to-indigo-950 text-white p-10 rounded-3xl border border-indigo-500/30 shadow-2xl relative overflow-hidden group hover:scale-[1.01] transition-transform duration-500">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-indigo-400/20 transition-colors"></div>
 
               <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-2">
@@ -169,7 +174,7 @@ export default function Home() {
                     Competitors prefer a fresher who knows Python/LLMs over someone they have to train for 6 months.
                   </p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 text-center">
+                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 text-center group-hover:bg-white/15 transition-colors">
                   <div className="text-4xl font-bold text-white mb-1">2.9 Lakh</div>
                   <div className="text-xs text-indigo-200 uppercase tracking-wider mb-4">Roles Added by GCCs</div>
                   <p className="text-xs text-indigo-100 leading-tight">
@@ -183,30 +188,30 @@ export default function Home() {
       </section>
 
       {/* 3. Our Foundational Identity */}
-      <section className="py-20 px-6 bg-secondary/30">
+      <section className="py-10 px-6 bg-secondary/30 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Column: Text & List */}
             <ScrollAnimation>
               <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-4">Moving Beyond the "Placement" Myth</h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">Moving Beyond the "Placement" Myth</h2>
+                <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
                   Our work is rooted in clarity, discipline, behaviour, and responsibility—not motivation, short-term outcomes, or superficial training. While many focus on the "job," we focus on the "person" behind the career.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {[
                   { title: 'Clarity', desc: 'Understanding yourself—your skills, behaviour, and personality—before stepping into the world.', icon: Brain },
                   { title: 'Discipline', desc: 'Developing the professional behaviour and decision-making ability required to survive and thrive.', icon: Target },
                   { title: 'Responsibility', desc: 'Transitioning consciously into work life with a sense of ownership.', icon: ShieldCheck },
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-5 items-start">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-1">
-                      <item.icon className="w-6 h-6 text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                      <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-foreground text-lg mb-1">{item.title}</h3>
+                      <h3 className="font-bold text-foreground text-xl mb-1">{item.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
@@ -216,14 +221,14 @@ export default function Home() {
 
             {/* Right Column: Visual Card */}
             <ScrollAnimation direction="left">
-              <div className="bg-gradient-to-br from-card to-background p-10 rounded-3xl border border-border shadow-2xl text-center relative overflow-hidden group">
+              <div className="bg-gradient-to-br from-card to-background p-6 rounded-3xl border border-border shadow-2xl text-center relative overflow-hidden group hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-24 h-24 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
-                  <UserCheck className="w-10 h-10 text-blue-600 dark:text-blue-400" />
+                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4 relative z-10 group-hover:scale-110 transition-transform">
+                  <UserCheck className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2 relative z-10">The Whole Person</h3>
-                <div className="w-16 h-1 bg-primary mx-auto my-6 rounded-full relative z-10" />
-                <p className="font-bold text-xl mb-2 relative z-10">Character &gt; Skills</p>
+                <div className="w-16 h-1 bg-primary mx-auto my-4 rounded-full relative z-10" />
+                <p className="font-bold text-2xl mb-2 relative z-10">Character &gt; Skills</p>
                 <p className="text-muted-foreground relative z-10">We build the foundation<br />for a 40-year career.</p>
               </div>
             </ScrollAnimation>
@@ -232,12 +237,12 @@ export default function Home() {
       </section>
 
       {/* 3. The Program: "The Next Chapter" */}
-      <section id="program" className="py-20 px-6">
+      <section id="program" className="py-10 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <ScrollAnimation>
             <div className="text-center mb-16 max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">The Next Chapter (120-Hour Fusion)</h2>
-              <p className="text-lg text-muted-foreground">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">The Next Chapter (120-Hour Fusion)</h2>
+              <p className="text-base md:text-lg text-muted-foreground">
                 "The Next Chapter" is a structured Career Alignment & Life Readiness Program delivered offline to college students. This isn't a one-off seminar; it is a 120-hour immersion that blends technical rigor with life-sustaining habits.
               </p>
             </div>
@@ -246,7 +251,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left Column: Video Placeholder */}
             <ScrollAnimation delay={0.1}>
-              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black relative aspect-video group cursor-pointer h-full min-h-[300px]">
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black relative aspect-video group cursor-pointer h-full hover:shadow-cyan-500/20 hover:scale-[1.01] transition-all duration-300">
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center pl-1 shadow-lg group-hover:scale-110 transition-transform">
@@ -265,7 +270,11 @@ export default function Home() {
                     align: "start",
                     loop: true,
                   }}
-                  plugins={[]} // Add Autoplay plugin here if needed
+                  plugins={[
+                    Autoplay({
+                      delay: 3000,
+                    }),
+                  ]}
                   className="w-full"
                 >
                   <CarouselContent className="-ml-4">
@@ -304,9 +313,9 @@ export default function Home() {
                       }
                     ].map((item, index) => (
                       <CarouselItem key={index} className="pl-4 basis-full">
-                        <div className="p-8 h-full rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-primary/50 transition-colors flex flex-col min-h-[300px] justify-center">
-                          <div className={`w-16 h-16 rounded-2xl ${item.bg} flex items-center justify-center mb-6`}>
-                            <item.icon className={`w-8 h-8 ${item.color}`} />
+                        <div className="p-6 h-full rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-primary/50 transition-colors flex flex-col min-h-[240px] justify-center hover:bg-[#111827]">
+                          <div className={`w-12 h-12 rounded-2xl ${item.bg} flex items-center justify-center mb-4`}>
+                            <item.icon className={`w-6 h-6 ${item.color}`} />
                           </div>
                           <div className="text-xs font-bold text-white/50 mb-3 tracking-wider">{item.phase}</div>
                           <h3 className="font-bold text-2xl mb-3 text-white">{item.title}</h3>
@@ -327,13 +336,13 @@ export default function Home() {
       </section>
 
       {/* 4. Our Competitive Edge */}
-      <section className="py-20 px-6 bg-secondary/10 border-y border-border/50">
+      <section className="py-16 px-6 bg-secondary/10 border-y border-border/50 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <ScrollAnimation>
               <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-6">Our Competitive Edge: Industry-Led Mentorship</h2>
-                <p className="text-lg text-muted-foreground">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Competitive Edge: Industry-Led Mentorship</h2>
+                <p className="text-base md:text-lg text-muted-foreground">
                   We do not use generic trainers. We engage facilitators who bring real-world experience and depth in their specific domain.
                 </p>
               </div>
@@ -349,7 +358,7 @@ export default function Home() {
                       <Briefcase className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground text-lg mb-1">{standard.title}</h4>
+                      <h4 className="font-bold text-foreground text-xl mb-1">{standard.title}</h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">{standard.desc}</p>
                     </div>
                   </div>
@@ -358,13 +367,13 @@ export default function Home() {
             </ScrollAnimation>
 
             <ScrollAnimation direction="left">
-              <div className="bg-gradient-to-br from-card to-background p-10 rounded-3xl border border-border shadow-2xl text-center">
-                <div className="w-24 h-24 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="bg-gradient-to-br from-card to-background p-10 rounded-3xl border border-border shadow-2xl text-center group hover:scale-[1.02] transition-transform duration-300">
+                <div className="w-24 h-24 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                   <Users className="w-10 h-10 text-blue-600 dark:text-blue-400" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Our Trainer Standards</h3>
                 <div className="w-16 h-1 bg-primary mx-auto my-6 rounded-full" />
-                <p className="font-bold text-xl mb-2">3+ Years Experience</p>
+                <p className="font-bold text-2xl mb-2">3+ Years Experience</p>
                 <p className="text-muted-foreground">Real-world practitioners.<br />Not just speakers.</p>
               </div>
             </ScrollAnimation>
@@ -373,13 +382,13 @@ export default function Home() {
       </section>
 
       {/* 5. Institutional Partnership Model */}
-      <section className="py-20 px-6">
+      <section className="py-16 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <ScrollAnimation>
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-2">Institutional Partnership Model</h2>
-              <p className="text-xl text-primary font-medium tracking-wide">Offline Excellence on Your Campus</p>
-              <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">Institutional Partnership Model</h2>
+              <p className="text-lg md:text-xl text-primary font-medium tracking-wide">Offline Excellence on Your Campus</p>
+              <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base md:text-lg">
                 We do not approach students individually; we partner with colleges to integrate "The Next Chapter" into the institutional framework.
               </p>
             </div>
@@ -392,11 +401,11 @@ export default function Home() {
               { title: "Zero Personal Promotion", desc: "Our trainers are prohibited from personal sales or pitching during sessions; the focus remains 100% on the student’s development.", icon: Users }
             ].map((item, i) => (
               <ScrollAnimation key={i} delay={i * 0.1}>
-                <div className="bg-secondary/30 p-8 rounded-2xl border border-border hover:border-primary/50 transition-all text-center h-full hover:-translate-y-1">
-                  <div className="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-6 text-blue-600">
+                <div className="bg-secondary/30 p-8 rounded-2xl border border-border hover:border-primary/50 transition-all text-center h-full hover:-translate-y-2 hover:shadow-xl duration-300">
+                  <div className="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-6 text-blue-600 group-hover:scale-110 transition-transform">
                     <item.icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-lg font-bold mb-3">{item.title}</h3>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               </ScrollAnimation>
@@ -406,12 +415,12 @@ export default function Home() {
       </section>
 
       {/* 6. What We Are NOT */}
-      <section className="py-20 px-6 bg-red-50/10 dark:bg-red-950/10 relative overflow-hidden">
+      <section className="py-16 px-6 bg-red-50/10 dark:bg-red-950/10 relative overflow-hidden z-10">
         <div className="max-w-6xl mx-auto relative z-10">
           <ScrollAnimation>
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">What We Are NOT</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">To maintain the integrity of our program, we are transparent about what we do and what we do not do</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">What We Are NOT</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">To maintain the integrity of our program, we are transparent about what we do and what we do not do</p>
             </div>
           </ScrollAnimation>
 
@@ -423,12 +432,12 @@ export default function Home() {
               { title: "No Slides-Only Teaching", desc: "We rely on application and discussion, not just presentation slides." }
             ].map((item, i) => (
               <ScrollAnimation key={i} delay={i * 0.1}>
-                <div className="p-6 rounded-xl bg-background border border-red-200/20 shadow-sm hover:shadow-md transition-all text-center h-full group">
+                <div className="p-6 rounded-xl bg-background border border-red-200/20 shadow-sm hover:shadow-md transition-all text-center h-full group hover:-translate-y-1 duration-300">
                   <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <XCircle className="w-6 h-6" />
                   </div>
-                  <h3 className="font-bold mb-2 text-sm">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                  <h3 className="font-bold mb-2 text-base">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </div>
               </ScrollAnimation>
             ))}
@@ -437,14 +446,14 @@ export default function Home() {
       </section>
 
       {/* 7. Closing Invitation */}
-      <section className="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950 text-white text-center relative">
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-950 to-slate-950 text-white text-center relative">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
         <div className="max-w-4xl mx-auto relative z-10">
           <ScrollAnimation>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight tracking-tight">
               Built by people who take responsibility for shaping young minds seriously.
             </h2>
-            <p className="text-lg md:text-xl text-blue-100/80 mb-10 max-w-2xl mx-auto font-light">
+            <p className="text-base md:text-lg text-blue-100/80 mb-8 max-w-2xl mx-auto font-light">
               We invite colleges and mentors who value integrity to explore a meaningful professional association with us.
             </p>
             <Button size="lg" className="h-14 px-10 text-base bg-white text-blue-950 hover:bg-blue-50 transition-all font-bold tracking-wide rounded-full shadow-2xl hover:scale-105" asChild>
