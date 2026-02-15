@@ -2,140 +2,144 @@
 
 import { Button } from '@/components/ui/button'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
-import { ArrowLeft, TrendingDown, Users, AlertTriangle, Monitor, Lightbulb, Briefcase, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, Target, Compass, Shield, Award, Users, Lightbulb } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AboutPage() {
     return (
         <div className="min-h-screen bg-background text-foreground">
-            {/* Header */}
+            <main className="max-w-4xl mx-auto px-6 pt-24 pb-12">
 
-
-            <main className="max-w-3xl mx-auto px-6 pt-24 pb-12">
+                {/* Hero Section */}
                 <ScrollAnimation delay={0.1}>
-                    <div className="mb-8">
-                        <div className="inline-block px-2 py-0.5 rounded-full border border-primary/20 bg-primary/10 text-primary text-[10px] font-medium mb-3">
+                    <div className="text-center mb-20">
+                        <div className="inline-block px-3 py-1 rounded-full border border-primary/20 bg-primary/10 text-primary text-xs font-semibold mb-4 tracking-wider uppercase">
                             About Us
                         </div>
-                        <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">The Context</h1>
-                        <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light">
-                            To understand why we exist, you must understand the "wicked problem" of fresher placements in India. It is a structural disconnect where the supply of degrees has outpaced the demand for skills.
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                            Bridging the Gap Between <span className="text-primary">Education</span> & <span className="text-primary">Employability</span>
+                        </h1>
+                        <p className="text-lg text-muted-foreground leading-relaxed font-light max-w-2xl mx-auto">
+                            We are not just a training institute; we are a movement to reclaim the true purpose of education—transforming potential into professional excellence.
                         </p>
                     </div>
                 </ScrollAnimation>
 
-                <section className="space-y-12">
-                    {/* The Numbers */}
+                {/* Our Story */}
+                <section className="mb-24">
                     <ScrollAnimation>
-                        <div className="border-l-2 border-primary pl-5 py-1">
-                            <h2 className="text-xl font-bold mb-4">The Employability Paradox</h2>
-                            <p className="text-sm text-muted-foreground mb-4">
-                                While India adds over 10 million youth to the working-age population annually, recent data for 2024-2025 reveals a critical gap.
-                            </p>
-                            <div className="grid md:grid-cols-2 gap-3">
-                                <div className="p-3 bg-card border border-border rounded-lg">
-                                    <h3 className="text-base font-semibold mb-1 flex items-center gap-2">
-                                        <Users className="w-3.5 h-3.5 text-primary" /> Engineering Crisis
-                                    </h3>
-                                    <p className="text-[11px] text-muted-foreground">
-                                        1.5 million engineers graduate annually, but <strong>only 10-17% are hired into core roles</strong>.
-                                    </p>
-                                </div>
-                                <div className="p-3 bg-card border border-border rounded-lg">
-                                    <h3 className="text-base font-semibold mb-1 flex items-center gap-2">
-                                        <TrendingDown className="w-3.5 h-3.5 text-red-500" /> Hiring Decline
-                                    </h3>
-                                    <p className="text-[11px] text-muted-foreground">
-                                        Hiring intent for freshers in IT dropped from <strong>600,000 (2022)</strong> to under <strong>150,000 (2024)</strong>.
-                                    </p>
-                                </div>
+                        <div className="bg-secondary/10 border border-white/5 rounded-2xl p-8 md:p-12">
+                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                                <Lightbulb className="w-6 h-6 text-yellow-400" />
+                                Our Story
+                            </h2>
+                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                                <p>
+                                    Hayagreeva Skillspheree was born out of a critical observation: India produces millions of graduates every year, yet industries struggle to find "employable" talent. The disconnect wasn't in the degrees, but in the <strong>delivery of skills</strong> and the <strong>development of character</strong>.
+                                </p>
+                                <p>
+                                    We realized that students didn't just need technical training; they needed a fundamental shift in mindset. They needed to move from being passive learners to active, responsible professionals. Thus, distinct from traditional placement agencies, we established Hayagreeva to be a comprehensive <strong>Career Alignment & Life Readiness Organization</strong>.
+                                </p>
                             </div>
                         </div>
                     </ScrollAnimation>
+                </section>
 
-                    {/* Why it's Wicked */}
+                {/* Mission & Vision */}
+                <section className="grid md:grid-cols-2 gap-8 mb-24">
+                    <ScrollAnimation delay={0.1}>
+                        <div className="h-full p-8 border border-border rounded-2xl hover:border-primary/50 transition-colors bg-gradient-to-br from-background to-secondary/5">
+                            <Target className="w-10 h-10 text-red-500 mb-6" />
+                            <h3 className="text-xl font-bold mb-4">Our Mission</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                To empower students with the clarity, discipline, and responsibility required to navigate the complexities of the modern workforce, ensuring they are not just hired, but valued.
+                            </p>
+                        </div>
+                    </ScrollAnimation>
+                    <ScrollAnimation delay={0.2}>
+                        <div className="h-full p-8 border border-border rounded-2xl hover:border-primary/50 transition-colors bg-gradient-to-br from-background to-secondary/5">
+                            <Compass className="w-10 h-10 text-blue-500 mb-6" />
+                            <h3 className="text-xl font-bold mb-4">Our Vision</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                To be the premier bridge between academic institutions and the corporate world, creating a generation of professionals who lead with integrity, competence, and purpose.
+                            </p>
+                        </div>
+                    </ScrollAnimation>
+                </section>
+
+                {/* Core Values */}
+                <section className="mb-24">
                     <ScrollAnimation>
-                        <h2 className="text-xl font-bold mb-4">Why the Problem is "Wicked"</h2>
-                        <p className="text-sm text-muted-foreground mb-4">
-                            A "wicked problem" is difficult to solve because of incomplete and contradictory requirements.
-                        </p>
-                        <div className="space-y-3">
+                        <h2 className="text-3xl font-bold mb-12 text-center">Our Core Values</h2>
+                        <div className="grid md:grid-cols-3 gap-6">
                             {[
-                                { title: "The Experience Paradox", desc: "Employers want 'plug-and-play' freshers. You can't get a job without experience, and can't get experience without a job." },
-                                { title: "Outdated Curricula", desc: "Many colleges teach technologies and methodologies that industry abandoned years ago." },
-                                { title: "The 'ATS Monster'", desc: "80% of resumes are rejected by automated systems before a human sees them." },
-                                { title: "Soft Skill Deficit", desc: "52% of graduates fail not on technicals, but due to poor adaptability and communication." }
-                            ].map((item, i) => (
-                                <div key={i} className="flex gap-3 items-start">
-                                    <div className="w-5 h-5 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-0.5">
-                                        <AlertTriangle className="w-2.5 h-2.5 text-primary" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-sm">{item.title}</h3>
-                                        <p className="text-xs text-muted-foreground">{item.desc}</p>
-                                    </div>
+                                {
+                                    title: "Clarity",
+                                    icon: Compass,
+                                    color: "text-cyan-400",
+                                    desc: "Understanding oneself and the market. Making informed decisions rather than following the herd."
+                                },
+                                {
+                                    title: "Discipline",
+                                    icon: Shield,
+                                    color: "text-purple-400",
+                                    desc: "The consistent adherence to standards. It is the bridge between goals and accomplishment."
+                                },
+                                {
+                                    title: "Responsibility",
+                                    icon: Users,
+                                    color: "text-green-400",
+                                    desc: "Taking ownership of one's career and life choices. Accountability is the mark of a professional."
+                                }
+                            ].map((value, i) => (
+                                <div key={i} className="p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                                    <value.icon className={`w-8 h-8 ${value.color} mb-4`} />
+                                    <h3 className="text-lg font-bold mb-2">{value.title}</h3>
+                                    <p className="text-xs text-muted-foreground leading-relaxed">{value.desc}</p>
                                 </div>
                             ))}
                         </div>
                     </ScrollAnimation>
+                </section>
 
-                    {/* AI Factor */}
+                {/* The Name */}
+                <section className="mb-24">
                     <ScrollAnimation>
-                        <div className="bg-gradient-to-br from-indigo-900/20 to-purple-900/20 p-5 rounded-xl border border-indigo-500/20">
-                            <h2 className="text-xl font-bold mb-3 flex items-center gap-2">
-                                <Monitor className="w-5 h-5 text-indigo-400" />
-                                The AI & Automation Factor (2025)
-                            </h2>
-                            <p className="text-sm text-muted-foreground mb-3">
-                                Artificial Intelligence has permanently raised the bar. Traditional "bottom-rung" roles (basic coding, data entry) are being automated.
-                            </p>
-                            <div className="bg-background/50 p-3 rounded-lg border border-white/5">
-                                <h4 className="font-semibold mb-1 text-xs">The Specialist Shift</h4>
-                                <p className="text-[10px] text-muted-foreground">Competitors prefer a fresher who knows Python/LLMs over someone they have to train for 6 months. GCCs added 2.9 lakh roles, but only for niche skills.</p>
+                        <div className="flex flex-col md:flex-row items-center gap-10">
+                            <div className="flex-1">
+                                <h2 className="text-2xl font-bold mb-4">Why "Hayagreeva"?</h2>
+                                <p className="text-muted-foreground leading-relaxed mb-4">
+                                    In ancient tradition, <strong>Hayagreeva</strong> is the embodiment of knowledge and wisdom. We chose this name to reflect our commitment to true learning—knowledge that removes darkness and empowers action.
+                                </p>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    Skillspheree represents the holistic ecosystem we create around the student, encompassing technical skills, and life skills.
+                                </p>
                             </div>
-                        </div>
-                    </ScrollAnimation>
-
-                    {/* Solution */}
-                    <ScrollAnimation>
-                        <div className="text-center pt-6 border-t border-border">
-                            <h2 className="text-xl font-bold mb-3">How Hayagreeva Addresses This</h2>
-                            <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">
-                                We attack this problem directly through a 120-hour fusion of technical grounds and life readiness.
-                            </p>
-                            <div className="grid md:grid-cols-3 gap-3 mb-6 text-left">
-                                <div className="p-3 bg-secondary/20 rounded-lg">
-                                    <Lightbulb className="w-5 h-5 text-primary mb-2" />
-                                    <h3 className="font-bold text-sm mb-1">Clarity vs Noise</h3>
-                                    <p className="text-[10px] text-muted-foreground">Stopping students from blindly following trends.</p>
-                                </div>
-                                <div className="p-3 bg-secondary/20 rounded-lg">
-                                    <Briefcase className="w-5 h-5 text-primary mb-2" />
-                                    <h3 className="font-bold text-sm mb-1">Industry Objectives</h3>
-                                    <p className="text-[10px] text-muted-foreground">Replacing "theory only" with "industry-ready objectives".</p>
-                                </div>
-                                <div className="p-3 bg-secondary/20 rounded-lg">
-                                    <ShieldCheck className="w-5 h-5 text-primary mb-2" />
-                                    <h3 className="font-bold text-sm mb-1">Behavior & Discipline</h3>
-                                    <p className="text-[10px] text-muted-foreground">Solving the #1 reason for interview rejection: the soft skill gap.</p>
-                                </div>
+                            <div className="flex-shrink-0 bg-primary/10 p-8 rounded-full">
+                                <Award className="w-24 h-24 text-primary" />
                             </div>
-                            <Button size="sm" asChild>
-                                <Link href="/courses">Explore The Course</Link>
-                            </Button>
                         </div>
                     </ScrollAnimation>
                 </section>
-            </main>
 
-            {/* Footer */}
-            <footer className="border-t border-border py-8 px-6 bg-background mt-16">
-                <div className="max-w-3xl mx-auto text-center">
-                    <p className="text-muted-foreground text-xs mb-2">
-                        © 2026 Hayagreeva Skillspheree
-                    </p>
-                </div>
-            </footer>
+                {/* CTA */}
+                <ScrollAnimation>
+                    <div className="text-center py-12 border-t border-border">
+                        <h2 className="text-2xl font-bold mb-4">Ready to Start the Journey?</h2>
+                        <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+                            Whether you are a student, a college administrator, or a potential mentor, there is a place for you in our mission.
+                        </p>
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                            <Button size="lg" className="rounded-full px-8" asChild>
+                                <Link href="/courses">Explore Our Framework</Link>
+                            </Button>
+                            <Button size="lg" variant="outline" className="rounded-full px-8" asChild>
+                                <Link href="/#contact">Partner With Us</Link>
+                            </Button>
+                        </div>
+                    </div>
+                </ScrollAnimation>
+            </main>
         </div>
     )
 }

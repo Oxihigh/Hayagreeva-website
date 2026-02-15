@@ -18,9 +18,12 @@ import {
   TrendingDown,
   AlertTriangle,
   Monitor,
-  Lightbulb
+  Lightbulb,
+  UserCheck
 } from 'lucide-react'
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import Image from 'next/image'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -182,31 +185,48 @@ export default function Home() {
       {/* 3. Our Foundational Identity */}
       <section className="py-20 px-6 bg-secondary/30">
         <div className="max-w-6xl mx-auto">
-          <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Moving Beyond the "Placement" Myth</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Our work is rooted in clarity, discipline, behaviour, and responsibility—not motivation, short-term outcomes, or superficial training. While many focus on the "job," we focus on the "person" behind the career. We design structured, mentor-led programs that bridge the gap between academic life and real professional expectations.
-              </p>
-            </div>
-          </ScrollAnimation>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left Column: Text & List */}
+            <ScrollAnimation>
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold mb-4">Moving Beyond the "Placement" Myth</h2>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  Our work is rooted in clarity, discipline, behaviour, and responsibility—not motivation, short-term outcomes, or superficial training. While many focus on the "job," we focus on the "person" behind the career.
+                </p>
+              </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: 'Clarity', desc: 'Understanding yourself—your skills, behaviour, and personality—before stepping into the world.', icon: Brain },
-              { title: 'Discipline', desc: 'Developing the professional behaviour and decision-making ability required to survive and thrive.', icon: Target },
-              { title: 'Responsibility', desc: 'Transitioning consciously into work life with a sense of ownership.', icon: ShieldCheck },
-            ].map((item, idx) => (
-              <ScrollAnimation key={idx} delay={idx * 0.1}>
-                <div className="bg-card border border-border p-8 rounded-xl hover:shadow-lg transition-all h-full text-center hover:border-primary/30">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 mx-auto text-primary">
-                    <item.icon className="w-8 h-8" />
+              <div className="space-y-6">
+                {[
+                  { title: 'Clarity', desc: 'Understanding yourself—your skills, behaviour, and personality—before stepping into the world.', icon: Brain },
+                  { title: 'Discipline', desc: 'Developing the professional behaviour and decision-making ability required to survive and thrive.', icon: Target },
+                  { title: 'Responsibility', desc: 'Transitioning consciously into work life with a sense of ownership.', icon: ShieldCheck },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-5 items-start">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                      <item.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-foreground text-lg mb-1">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                ))}
+              </div>
+            </ScrollAnimation>
+
+            {/* Right Column: Visual Card */}
+            <ScrollAnimation direction="left">
+              <div className="bg-gradient-to-br from-card to-background p-10 rounded-3xl border border-border shadow-2xl text-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-24 h-24 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+                  <UserCheck className="w-10 h-10 text-blue-600 dark:text-blue-400" />
                 </div>
-              </ScrollAnimation>
-            ))}
+                <h3 className="text-2xl font-bold mb-2 relative z-10">The Whole Person</h3>
+                <div className="w-16 h-1 bg-primary mx-auto my-6 rounded-full relative z-10" />
+                <p className="font-bold text-xl mb-2 relative z-10">Character &gt; Skills</p>
+                <p className="text-muted-foreground relative z-10">We build the foundation<br />for a 40-year career.</p>
+              </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -223,49 +243,85 @@ export default function Home() {
             </div>
           </ScrollAnimation>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Technical & Core Branch Foundations",
-                points: [
-                  "Specific modules for Engineering (B.E./B.Tech), Science (B.Sc), Education (B.Ed), and Financial roles.",
-                  "Bridging the gap between theory and industry-ready objectives."
-                ]
-              },
-              {
-                title: "Professional Behaviour & Soft Skills",
-                points: [
-                  "Moving away from generic motivational content or superficial activities.",
-                  "Focusing on real-world professional environments and interactive, discussion-based learning."
-                ]
-              },
-              {
-                title: "Aptitude & Logical Readiness",
-                points: [
-                  "Developing the cognitive speed and problem-solving tools required for modern selection processes."
-                ]
-              },
-              {
-                title: "Nutritional Balance & Mental Health",
-                points: [
-                  "A holistic approach to ensuring students are physically and mentally prepared for the rigors of industry work."
-                ]
-              }
-            ].map((module, i) => (
-              <ScrollAnimation key={i} delay={i * 0.1}>
-                <div className="border border-border p-8 rounded-2xl hover:bg-secondary/20 transition-colors h-full flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-4 text-primary">{module.title}</h3>
-                  <ul className="space-y-4">
-                    {module.points.map((point, j) => (
-                      <li key={j} className="flex gap-4 text-sm text-foreground/80 leading-relaxed">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Left Column: Video Placeholder */}
+            <ScrollAnimation delay={0.1}>
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black relative aspect-video group cursor-pointer h-full min-h-[300px]">
+                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center pl-1 shadow-lg group-hover:scale-110 transition-transform">
+                    <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent"></div>
+                  </div>
                 </div>
+                <span className="absolute bottom-6 left-6 text-sm font-bold bg-black/60 px-3 py-1.5 rounded-lg text-white backdrop-blur-sm border border-white/10">Watch Our Vision</span>
+              </div>
+            </ScrollAnimation>
+
+            {/* Right Column: Carousel Content */}
+            <div className="relative">
+              <ScrollAnimation delay={0.2}>
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: true,
+                  }}
+                  plugins={[]} // Add Autoplay plugin here if needed
+                  className="w-full"
+                >
+                  <CarouselContent className="-ml-4">
+                    {[
+                      {
+                        phase: "PHASE 1",
+                        title: "Self Awareness & Foundation",
+                        desc: "Objective: Make students understand themselves before thinking about career.",
+                        icon: Brain,
+                        color: "text-cyan-400",
+                        bg: "bg-cyan-500/10",
+                      },
+                      {
+                        phase: "PHASE 2",
+                        title: "Career Clarity & Decision Making",
+                        desc: "Objective: Help students connect skills to real career options.",
+                        icon: Monitor,
+                        color: "text-purple-400",
+                        bg: "bg-purple-500/10",
+                      },
+                      {
+                        phase: "PHASE 3",
+                        title: "Professional Development & Workplace Readiness",
+                        desc: "Objective: Prepare students to survive and grow in real work environments.",
+                        icon: Briefcase,
+                        color: "text-pink-400",
+                        bg: "bg-pink-500/10",
+                      },
+                      {
+                        phase: "PHASE 4",
+                        title: "Placement Readiness & Execution",
+                        desc: "Objective: Prepare students for interviews and hiring reality.",
+                        icon: CheckCircle2,
+                        color: "text-emerald-400",
+                        bg: "bg-emerald-500/10",
+                      }
+                    ].map((item, index) => (
+                      <CarouselItem key={index} className="pl-4 basis-full">
+                        <div className="p-8 h-full rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-primary/50 transition-colors flex flex-col min-h-[300px] justify-center">
+                          <div className={`w-16 h-16 rounded-2xl ${item.bg} flex items-center justify-center mb-6`}>
+                            <item.icon className={`w-8 h-8 ${item.color}`} />
+                          </div>
+                          <div className="text-xs font-bold text-white/50 mb-3 tracking-wider">{item.phase}</div>
+                          <h3 className="font-bold text-2xl mb-3 text-white">{item.title}</h3>
+                          <p className="text-base text-slate-400 leading-relaxed">{item.desc}</p>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="flex justify-end gap-2 mt-4">
+                    <CarouselPrevious className="static translate-y-0 translate-x-0" />
+                    <CarouselNext className="static translate-y-0 translate-x-0" />
+                  </div>
+                </Carousel>
               </ScrollAnimation>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -284,7 +340,7 @@ export default function Home() {
 
               <div className="space-y-6">
                 {[
-                  { title: "Experience", desc: "A minimum of 7+ years of relevant professional or domain experience." },
+                  { title: "Experience", desc: "A minimum of 3+ years of relevant professional or domain experience." },
                   { title: "Background", desc: "Mentors who have worked in real-world professional environments, leadership, or practice." },
                   { title: "Methodology", desc: "Trainers who connect concepts to real-life examples and value long-term development over quick results." }
                 ].map((standard, i) => (
@@ -308,7 +364,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Our Trainer Standards</h3>
                 <div className="w-16 h-1 bg-primary mx-auto my-6 rounded-full" />
-                <p className="font-bold text-xl mb-2">7+ Years Experience</p>
+                <p className="font-bold text-xl mb-2">3+ Years Experience</p>
                 <p className="text-muted-foreground">Real-world practitioners.<br />Not just speakers.</p>
               </div>
             </ScrollAnimation>
