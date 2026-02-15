@@ -93,14 +93,14 @@ export function Footer() {
                         <div>
                             <h5 className="font-bold mb-4 text-white">Address</h5>
                             <p className="text-sm text-slate-400 leading-relaxed">
-                                Hyderabad, Telangana, India
+                                Bangalore, Karnataka, India
                             </p>
                         </div>
                         {/* Call Us */}
                         <div>
                             <h5 className="font-bold mb-4 text-white">Call Us</h5>
                             <p className="text-sm text-slate-400">
-                                87544-13255
+                                +91 6361163390
                             </p>
                         </div>
                         {/* Email Us */}
