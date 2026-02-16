@@ -25,6 +25,7 @@ import { ScrollAnimation } from '@/components/ui/scroll-animation'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
+import { FAQSection } from '@/components/faq-section'
 
 import { motion } from 'framer-motion'
 
@@ -415,35 +416,7 @@ export default function Home() {
       </section>
 
       {/* 6. What We Are NOT */}
-      <section className="py-20 px-6 bg-red-50/10 dark:bg-red-950/10 relative overflow-hidden z-10">
-        <div className="max-w-6xl mx-auto relative z-10">
-          <ScrollAnimation>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Are NOT</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl">To maintain the integrity of our program, we are transparent about what we do and what we do not do</p>
-            </div>
-          </ScrollAnimation>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { title: "No Motivational Hype", desc: "We don't focus on empty speaking without substance." },
-              { title: "No False Promises", desc: "We do not promise placements, salaries, or shortcuts." },
-              { title: "No Generic Content", desc: "We do not use copied or internet-sourced content; our curriculum is built for depth." },
-              { title: "No Slides-Only Teaching", desc: "We rely on application and discussion, not just presentation slides." }
-            ].map((item, i) => (
-              <ScrollAnimation key={i} delay={i * 0.1}>
-                <div className="p-6 rounded-xl bg-background border border-red-200/20 shadow-sm hover:shadow-md transition-all text-center h-full group hover:-translate-y-1 duration-300">
-                  <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <XCircle className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-bold mb-2 text-base">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 7. Closing Invitation */}
       <section className="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950 text-white text-center relative">
@@ -462,6 +435,9 @@ export default function Home() {
           </ScrollAnimation>
         </div>
       </section>
+
+      {/* 8. FAQ Section */}
+      <FAQSection />
 
       {/* Footer */}
       <footer className="border-t border-border py-8 px-6 bg-background">

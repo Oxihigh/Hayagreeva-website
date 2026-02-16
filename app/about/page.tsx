@@ -20,7 +20,7 @@ export default function AboutPage() {
 
                 {/* Hero Section */}
                 <ScrollAnimation delay={0.1}>
-                    <div className="text-center mb-20 relative">
+                    <div className="text-center mb-20 relative min-h-[60vh] flex flex-col justify-center">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
