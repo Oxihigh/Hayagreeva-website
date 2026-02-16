@@ -46,6 +46,7 @@ export default function Home() {
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] opacity-20 animate-pulse delay-700"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-[100px] opacity-20 animate-pulse delay-1000"></div>
       </div>
 
       {/* 1. Hero Section: The Radical Reality of "The Next Chapter" */}
@@ -61,9 +62,9 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white mb-2 filter drop-shadow-2xl">
-                We Don't <span className="font-serif italic font-light text-blue-100">Motivate</span>.
+                We Don't <span className="font-serif italic font-light text-blue-200">Motivate</span>.
                 <br />
-                We <span className="font-serif italic text-white relative inline-block">
+                We <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 relative inline-block">
                   Prepare
                   <svg className="absolute w-full h-3 -bottom-1 left-0 text-blue-500" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
@@ -107,7 +108,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 mb-20">
             {/* The Employability Paradox */}
             <ScrollAnimation>
-              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 hover:bg-secondary/20 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-default">
+              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 hover:bg-secondary/20 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 cursor-default group">
                 <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
                   <TrendingDown className="w-6 h-6 text-red-500" />
                   The Employability Paradox
@@ -135,7 +136,7 @@ export default function Home() {
 
             {/* Why it's Wicked - Condensed */}
             <ScrollAnimation delay={0.1}>
-              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 hover:bg-secondary/20 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-default flex flex-col justify-center">
+              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 hover:bg-secondary/20 hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-300 cursor-default flex flex-col justify-center group">
                 <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
                   <AlertTriangle className="w-6 h-6 text-amber-500" />
                   Why it's "Wicked"
@@ -314,7 +315,7 @@ export default function Home() {
                       }
                     ].map((item, index) => (
                       <CarouselItem key={index} className="pl-4 basis-full">
-                        <div className="p-8 h-full rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-primary/50 transition-colors flex flex-col min-h-[300px] justify-center hover:bg-[#111827]">
+                        <div className="p-8 h-full rounded-2xl bg-[#0b0f19] border border-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col min-h-[300px] justify-center hover:bg-[#111827] hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10">
                           <div className={`w-16 h-16 rounded-2xl ${item.bg} flex items-center justify-center mb-6`}>
                             <item.icon className={`w-8 h-8 ${item.color}`} />
                           </div>
@@ -368,7 +369,7 @@ export default function Home() {
             </ScrollAnimation>
 
             <ScrollAnimation direction="left">
-              <div className="bg-gradient-to-br from-card to-background p-10 rounded-3xl border border-border shadow-2xl text-center group hover:scale-[1.02] transition-transform duration-300">
+              <div className="bg-gradient-to-br from-card to-background p-10 rounded-3xl border border-border shadow-2xl text-center group hover:scale-[1.02] hover:shadow-blue-500/20 transition-transform duration-300">
                 <div className="w-24 h-24 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                   <Users className="w-10 h-10 text-blue-600 dark:text-blue-400" />
                 </div>

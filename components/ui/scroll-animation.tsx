@@ -1,4 +1,4 @@
-import { motion, useInView, UseInViewOptions } from 'framer-motion'
+import { motion, useInView, UseInViewOptions, Variants } from 'framer-motion'
 import { useRef } from 'react'
 
 interface ScrollAnimationProps {
@@ -21,7 +21,7 @@ export function ScrollAnimation({
   const ref = useRef(null)
   const isInView = useInView(ref, viewport)
 
-  const variants = {
+  const variants: Variants = {
     hidden: {
       opacity: 0,
       y: direction === 'up' ? 40 : direction === 'down' ? -40 : 0,

@@ -29,8 +29,8 @@ export default function TeamPage() {
                                 Our Mentor Standards
                             </h1>
                         </motion.div>
-                        <p className="text-xl md:text-2xl text-slate-400 mb-12 font-light max-w-3xl mx-auto">
-                            We believe that students should only learn from those who have truly "been there". <br />
+                        <p className="text-xl md:text-2xl text-slate-400 mb-12 font-light max-w-4xl mx-auto">
+                            <span className="md:whitespace-nowrap">We believe that students should only learn from those who have truly "been there".</span><br />
                             <span className="text-white font-medium">Practitioners, not just Professors.</span>
                         </p>
                     </div>

@@ -20,20 +20,17 @@ export default function AboutPage() {
 
                 {/* Hero Section */}
                 <ScrollAnimation delay={0.1}>
-                    <div className="text-center mb-20 relative min-h-[60vh] flex flex-col justify-center">
+                    <div className="text-center mb-24 relative min-h-[60vh] flex flex-col justify-center">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="inline-block px-3 py-1 rounded-full border border-primary/20 bg-primary/10 text-primary text-xs font-semibold mb-4 tracking-wider uppercase">
-                                About Us
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
-                                Bridging the Gap Between <span className="text-primary">Education</span> & <span className="text-primary">Employability</span>
+                            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-cyan-400 drop-shadow-2xl">
+                                Bridging the Gap Between<br className="md:hidden" /> <span className="whitespace-nowrap"><span className="text-white">Education</span> & <span className="text-white">Employability</span></span>
                             </h1>
                         </motion.div>
-                        <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light max-w-2xl mx-auto">
+                        <p className="text-xl md:text-2xl text-slate-400 mb-12 font-light max-w-3xl mx-auto">
                             We are not just a training institute; we are a movement to reclaim the true purpose of education—transforming potential into professional excellence.
                         </p>
                     </div>
