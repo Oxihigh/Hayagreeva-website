@@ -11,7 +11,7 @@ export default function TeamPage() {
         <div className="min-h-screen bg-[#020817] text-foreground overflow-hidden">
             {/* Background Effects */}
             <div className="fixed inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] opacity-20 animate-pulse delay-700"></div>
             </div>
 
@@ -54,8 +54,8 @@ export default function TeamPage() {
                                     desc: "Trainers must have worked in leadership or practice within industry environments, not just academic theory.",
                                     icon: Briefcase,
                                     color: "text-blue-400",
-                                    bg: "bg-blue-500/10",
-                                    border: "group-hover:border-blue-500/50"
+                                    bg: "bg-primary/10",
+                                    border: "group-hover:border-primary/50"
                                 },
                                 {
                                     title: "Academic Focus",
@@ -96,7 +96,7 @@ export default function TeamPage() {
                 <ScrollAnimation>
                     <div className="relative rounded-3xl overflow-hidden p-12 text-center border border-white/10 group">
                         {/* Glass Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-md -z-10 group-hover:scale-105 transition-transform duration-1000"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/40 to-primary/40 backdrop-blur-md -z-10 group-hover:scale-105 transition-transform duration-1000"></div>
 
                         <div className="relative z-10 max-w-2xl mx-auto">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Are you a Leader?</h2>

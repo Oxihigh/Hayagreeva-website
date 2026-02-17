@@ -71,8 +71,8 @@ export default function AboutPage() {
                     </ScrollAnimation>
                     <ScrollAnimation delay={0.2}>
                         <div className="h-full p-8 border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 bg-gradient-to-br from-background to-secondary/5 hover:-translate-y-2 hover:shadow-xl group">
-                            <div className="w-16 h-16 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <Compass className="w-8 h-8 text-blue-500" />
+                            <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <Compass className="w-8 h-8 text-primary" />
                             </div>
                             <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
                             <p className="text-base text-muted-foreground leading-relaxed">

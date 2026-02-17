@@ -8,6 +8,7 @@ interface ScrollAnimationProps {
   duration?: number
   direction?: 'up' | 'down' | 'left' | 'right' | 'none'
   viewport?: UseInViewOptions
+  disableAnimation?: boolean
 }
 
 export function ScrollAnimation({
@@ -17,6 +18,7 @@ export function ScrollAnimation({
   duration = 0.5,
   direction = 'up',
   viewport = { once: false, amount: 0.3, margin: '0px 0px -100px 0px' },
+  disableAnimation = false,
 }: ScrollAnimationProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, viewport)
@@ -42,8 +44,8 @@ export function ScrollAnimation({
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      initial={disableAnimation ? "visible" : "hidden"}
+      animate={disableAnimation ? "visible" : (isInView ? 'visible' : 'hidden')}
       variants={variants}
       className={className}
     >
