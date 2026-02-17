@@ -13,10 +13,10 @@ export function Navbar() {
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl"
         >
-            <div className="flex items-center justify-between px-6 py-3 rounded-full bg-background/80 backdrop-blur-md border border-border/50 shadow-md ring-1 ring-border/5">
+            <div className="flex items-center justify-between px-6 py-3 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg ring-1 ring-white/5">
                 <Link
                     href="/"
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 bg-white px-2 py-1 rounded-[25px]"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
                     <Image

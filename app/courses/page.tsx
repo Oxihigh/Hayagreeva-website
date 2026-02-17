@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 export default function CoursesPage() {
   return (
-    <div className="min-h-screen bg-[#020817] text-foreground overflow-hidden">
+    <div className="min-h-screen bg-transparent text-foreground overflow-hidden">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
@@ -34,13 +34,13 @@ export default function CoursesPage() {
               The Next Chapter: <span className="text-white font-medium">Career Alignment & Life Readiness</span>
             </p>
 
-            <div className="p-1 rounded-2xl bg-gradient-to-r from-primary/50 via-purple-500/50 to-primary/50 max-w-3xl mx-auto">
-              <div className="bg-[#0b0f19] p-8 rounded-xl backdrop-blur-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-white/10 p-8 rounded-[25px] backdrop-blur-xl relative overflow-hidden border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
                 <h3 className="text-2xl font-bold mb-4 text-white flex items-center justify-center gap-2">
-                  <Target className="w-6 h-6 text-primary" /> Depth Over Hype
+                  <Target className="w-6 h-6 text-white" /> Depth Over Hype
                 </h3>
-                <p className="text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                <p className="text-blue-50 leading-relaxed max-w-2xl mx-auto font-light">
                   At Hayagreeva Skillspheree, we believe that the transition from a student to a professional is the most critical "Next Chapter". We are not a typical "Placement Agency" or a "Motivational Workshop". We build character.
                 </p>
               </div>
@@ -101,7 +101,7 @@ export default function CoursesPage() {
                   border: "hover:border-emerald-500/50"
                 }
               ].map((module, i) => (
-                <div key={i} className={`group relative p-6 rounded-2xl bg-[#111827]/50 border border-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${module.border}`}>
+                <div key={i} className={`group relative p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${module.border}`}>
                   <div className={`absolute top-4 right-4 text-5xl font-black text-white/5 group-hover:text-white/10 transition-colors`}>
                     {module.phase}
                   </div>
@@ -121,12 +121,12 @@ export default function CoursesPage() {
         <section className="mb-32">
           <ScrollAnimation>
             <div className="relative p-1 rounded-3xl bg-gradient-to-b from-red-500/20 via-transparent to-green-500/20">
-              <div className="bg-[#0b0f19] rounded-[22px] p-8 md:p-12 border border-white/5 overflow-hidden">
+              <div className="bg-black/20 rounded-[22px] p-8 md:p-12 border border-white/5 overflow-hidden">
                 <h2 className="text-3xl font-bold mb-12 text-center text-white">The "Anti-Motivational" Philosophy</h2>
 
                 <div className="grid md:grid-cols-2 gap-12 relative">
                   {/* VS Badge */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex w-16 h-16 bg-[#0b0f19] rounded-full border-2 border-white/10 items-center justify-center font-black text-white shadow-xl">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex w-16 h-16 bg-black/40 rounded-full border-2 border-white/10 items-center justify-center font-black text-white shadow-xl">
                     VS
                   </div>
 
@@ -186,7 +186,7 @@ export default function CoursesPage() {
                 { step: "04", title: "Outcome", desc: "Day-one workforce ready." }
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center text-center group">
-                  <div className="w-14 h-14 rounded-full bg-[#0b0f19] border-4 border-primary/20 flex items-center justify-center font-bold text-primary mb-6 group-hover:scale-110 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] transition-all duration-300 z-10 bg-background">
+                  <div className="w-14 h-14 rounded-full bg-black/20 border-4 border-primary/20 flex items-center justify-center font-bold text-primary mb-6 group-hover:scale-110 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] transition-all duration-300 z-10 backdrop-blur-md">
                     {item.step}
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
@@ -205,14 +205,14 @@ export default function CoursesPage() {
 
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Join the Mission</h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-primary/50 transition-all text-left">
+              <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/50 transition-all text-left">
                 <h3 className="text-xl font-bold text-white mb-2">For College Administrators</h3>
                 <p className="text-slate-400 mb-6 text-sm">Empower your institution with a curriculum that delivers real results.</p>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold" asChild>
+                <Button className="w-full bg-white hover:bg-white/90 text-primary-foreground font-bold" asChild>
                   <Link href="mailto:admin@hayagreeva.com">Partner With Us</Link>
                 </Button>
               </div>
-              <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-purple-500/50 transition-all text-left">
+              <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/50 transition-all text-left">
                 <h3 className="text-xl font-bold text-white mb-2">For Professional Mentors</h3>
                 <p className="text-slate-400 mb-6 text-sm">Share your industry expertise and shape the next generation.</p>
                 <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 hover:text-white" asChild>

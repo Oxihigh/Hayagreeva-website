@@ -34,7 +34,7 @@ export function FAQSection() {
   ]
 
   return (
-    <section className="py-20 px-6 bg-background relative z-10" id="faq">
+    <section className="py-20 px-6 bg-transparent relative z-10" id="faq">
       <div className="max-w-4xl mx-auto">
         <ScrollAnimation>
           <div className="text-center mb-12">

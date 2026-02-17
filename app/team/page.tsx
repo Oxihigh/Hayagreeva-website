@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 export default function TeamPage() {
     return (
-        <div className="min-h-screen bg-[#020817] text-foreground overflow-hidden">
+        <div className="min-h-screen bg-transparent text-foreground overflow-hidden">
             {/* Background Effects */}
             <div className="fixed inset-0 pointer-events-none">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
@@ -74,7 +74,7 @@ export default function TeamPage() {
                                     border: "group-hover:border-emerald-500/50"
                                 }
                             ].map((item, i) => (
-                                <div key={i} className={`group p-8 rounded-2xl bg-[#0b0f19]/80 border border-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-[#111827] cursor-default ${item.border}`}>
+                                <div key={i} className={`group p-8 rounded-2xl bg-black/20 border border-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white/5 cursor-default ${item.border}`}>
                                     <div className={`w-16 h-16 rounded-xl ${item.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
                                         {typeof item.icon === 'string' ? (
                                             <span className={`text-2xl font-black ${item.color}`}>{item.icon}</span>
@@ -94,18 +94,26 @@ export default function TeamPage() {
 
                 {/* CTA - Join the League */}
                 <ScrollAnimation>
-                    <div className="relative rounded-3xl overflow-hidden p-12 text-center border border-white/10 group">
+                    <div className="relative rounded-3xl overflow-hidden p-12 text-center border border-white/10">
                         {/* Glass Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/40 to-primary/40 backdrop-blur-md -z-10 group-hover:scale-105 transition-transform duration-1000"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-md -z-10"></div>
 
-                        <div className="relative z-10 max-w-2xl mx-auto">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Are you a Leader?</h2>
-                            <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                                If you take the responsibility of shaping young minds seriously and believe in <strong>responsibility over convenience</strong>, we invite you to join our league of mentors.
-                            </p>
-                            <Button size="lg" className="rounded-full px-10 h-14 text-lg font-bold bg-white text-black hover:bg-slate-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]" asChild>
-                                <Link href="mailto:mentors@hayagreeva.com">Apply as Mentor</Link>
-                            </Button>
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Join the Mission</h2>
+                        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/50 transition-all text-left">
+                                <h3 className="text-xl font-bold text-white mb-2">For College Administrators</h3>
+                                <p className="text-slate-400 mb-6 text-sm">Empower your institution with a curriculum that delivers real results.</p>
+                                <Button className="w-full bg-white hover:bg-white/90 text-primary-foreground font-bold" asChild>
+                                    <Link href="mailto:admin@hayagreeva.com">Partner With Us</Link>
+                                </Button>
+                            </div>
+                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/50 transition-all text-left">
+                                <h3 className="text-xl font-bold text-white mb-2">For Professional Mentors</h3>
+                                <p className="text-slate-400 mb-6 text-sm">Share your industry expertise and shape the next generation.</p>
+                                <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 hover:text-white" asChild>
+                                    <Link href="mailto:mentors@hayagreeva.com">Join the Team</Link>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </ScrollAnimation>

@@ -144,18 +144,26 @@ export default function AboutPage() {
 
                 {/* CTA */}
                 <ScrollAnimation>
-                    <div className="text-center py-12 border-t border-border">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start the Journey?</h2>
-                        <p className="text-lg text-muted-foreground mb-8 max-w-md mx-auto">
-                            Whether you are a student, a college administrator, or a potential mentor, there is a place for you in our mission.
-                        </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <Button size="lg" className="rounded-full px-8 h-12 text-base font-bold shadow-lg hover:shadow-primary/25" asChild>
-                                <Link href="/courses">Explore Our Framework</Link>
-                            </Button>
-                            <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base font-bold hover:bg-white/5" asChild>
-                                <Link href="/#contact">Partner With Us</Link>
-                            </Button>
+                    <div className="relative rounded-3xl overflow-hidden p-12 text-center border border-white/10">
+                        {/* Glass Background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-md -z-10"></div>
+
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Join the Mission</h2>
+                        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/50 transition-all text-left">
+                                <h3 className="text-xl font-bold text-white mb-2">For College Administrators</h3>
+                                <p className="text-slate-400 mb-6 text-sm">Empower your institution with a curriculum that delivers real results.</p>
+                                <Button className="w-full bg-white hover:bg-white/90 text-primary-foreground font-bold" asChild>
+                                    <Link href="mailto:admin@hayagreeva.com">Partner With Us</Link>
+                                </Button>
+                            </div>
+                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/50 transition-all text-left">
+                                <h3 className="text-xl font-bold text-white mb-2">For Professional Mentors</h3>
+                                <p className="text-slate-400 mb-6 text-sm">Share your industry expertise and shape the next generation.</p>
+                                <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 hover:text-white" asChild>
+                                    <Link href="mailto:mentors@hayagreeva.com">Join the Team</Link>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </ScrollAnimation>

@@ -16,14 +16,14 @@ import {
 
 export function Footer() {
     return (
-        <footer className="bg-[#020817] text-white pt-20 pb-10 border-t border-white/10">
+        <footer className="bg-transparent text-white pt-20 pb-10 border-t border-white/10">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid lg:grid-cols-12 gap-12 mb-20">
                     {/* Brand Section */}
                     <div className="lg:col-span-5 space-y-6">
                         <Link
                             href="/"
-                            className="inline-block"
+                            className="inline-block bg-white px-3 py-2 rounded-[25px]"
                             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         >
                             <div className="flex items-center gap-2">
