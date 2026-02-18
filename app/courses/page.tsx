@@ -6,6 +6,7 @@ import { ArrowLeft, BookOpen, Brain, Briefcase, Heart, Monitor, CheckCircle, XCi
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { RealityCheckSection } from '@/components/reality-check-section'
 
 export default function CoursesPage() {
   return (
@@ -63,8 +64,8 @@ export default function CoursesPage() {
               {[
                 {
                   phase: "01",
-                  title: "Self Awareness",
-                  subtitle: "& Foundation",
+                  title: "The Inner Audit",
+                  subtitle: "Self-Awareness & Foundationn",
                   desc: "Deep dive into personality, strengths, and weaknesses. Understanding 'Who am I?' before 'What should I do?'",
                   icon: Brain,
                   color: "text-cyan-400",
@@ -73,8 +74,8 @@ export default function CoursesPage() {
                 },
                 {
                   phase: "02",
-                  title: "Career Clarity",
-                  subtitle: "& Decision Making",
+                  title: "Strategic Mapping",
+                  subtitle: "Career Clarity & Decision Making",
                   desc: "Mapping specific skills to real-world career paths. Moving from confusion to conviction.",
                   icon: Compass,
                   color: "text-purple-400",
@@ -83,8 +84,8 @@ export default function CoursesPage() {
                 },
                 {
                   phase: "03",
-                  title: "Workplace Readiness",
-                  subtitle: "& Professional Dev",
+                  title: "Corporate Fluency",
+                  subtitle: "Workplace Readiness & Prof. Dev",
                   desc: "Surviving and thriving in corporate environments. Corporate etiquette, communication, and adaptability.",
                   icon: TrendingUp,
                   color: "text-pink-400",
@@ -93,8 +94,8 @@ export default function CoursesPage() {
                 },
                 {
                   phase: "04",
-                  title: "Placement Execution",
-                  subtitle: "& Interview Mastery",
+                  title: "Market Mastery",
+                  subtitle: "Placement Execution & Interview Mastery",
                   desc: "The final sprint. Resume building, mock interviews, and cracking the hiring process.",
                   icon: CheckCircle,
                   color: "text-emerald-400",
@@ -167,67 +168,24 @@ export default function CoursesPage() {
         </section>
 
         {/* Video Placeholder */}
-        <section className="h-[60vh] md:h-screen w-full bg-transparent flex items-center justify-center relative overflow-hidden mb-32 rounded-3xl border border-white/5">
-          <div className="absolute inset-0 bg-black/50 transition-colors"></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-24 h-24 rounded-full bg-primary/90 flex items-center justify-center pl-1 shadow-lg cursor-pointer hover:scale-110 transition-transform hover:shadow-primary/50">
-              <div className="w-0 h-0 border-t-[14px] border-t-transparent border-l-[24px] border-l-white border-b-[14px] border-b-transparent"></div>
-            </div>
-          </div>
-          <div className="absolute bottom-10 text-center w-full">
-            <span className="text-lg font-bold bg-black/60 px-6 py-2 rounded-full text-white backdrop-blur-sm border border-white/10">Watch Our Curriculum in Action</span>
-          </div>
+        {/* Video Placeholder */}
+        <section className="h-[60vh] md:h-screen w-full bg-black flex items-center justify-center relative overflow-hidden mb-32 rounded-3xl border border-white/5">
+          <video
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/sample_video.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/50 z-10"></div>
         </section>
 
-        {/* The "Anti-Motivational" Philosophy */}
-        <section className="mb-32">
-          <ScrollAnimation>
-            <div className="relative p-1 rounded-3xl bg-gradient-to-b from-red-500/20 via-transparent to-green-500/20">
-              <div className="bg-black/20 rounded-[22px] p-8 md:p-12 border border-white/5 overflow-hidden">
-                <h2 className="text-3xl font-bold mb-12 text-center text-white">The "Anti-Motivational" Philosophy</h2>
-
-                <div className="grid md:grid-cols-2 gap-12 relative">
-                  {/* VS Badge */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex w-16 h-16 bg-black/40 rounded-full border-2 border-white/10 items-center justify-center font-black text-white shadow-xl">
-                    VS
-                  </div>
-
-                  {/* What We Avoid */}
-                  <div className="space-y-6 relative group">
-                    <div className="absolute inset-0 bg-red-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <h3 className="text-2xl font-bold text-red-400 flex items-center gap-3">
-                      <XCircle className="w-8 h-8" /> What We Avoid
-                    </h3>
-                    <ul className="space-y-4">
-                      {["Motivational Hype", "False Placement Promises", "Generic Internet Content", "Short-term Shortcuts"].map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-slate-400 group-hover:text-red-200/80 transition-colors bg-red-950/20 p-3 rounded-lg border border-red-500/10">
-                          <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* What We Provide */}
-                  <div className="space-y-6 relative group">
-                    <div className="absolute inset-0 bg-emerald-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <h3 className="text-2xl font-bold text-emerald-400 flex items-center gap-3 md:justify-end">
-                      What We Provide <CheckCircle className="w-8 h-8" />
-                    </h3>
-                    <ul className="space-y-4">
-                      {["Substantial Domain Depth", "True Industrial Readiness", "Reflection-Based Learning", "Long-term Career Growth"].map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-slate-400 group-hover:text-emerald-200/80 transition-colors bg-emerald-950/20 p-3 rounded-lg border border-emerald-500/10 md:flex-row-reverse md:text-right">
-                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimation>
-        </section>
+        {/* The Reality Filter (Replaces Anti-Motivational) */}
+        <ScrollAnimation>
+          <RealityCheckSection />
+        </ScrollAnimation>
 
         {/* Call to Action */}
         <ScrollAnimation>

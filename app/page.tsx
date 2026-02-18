@@ -66,18 +66,43 @@ export default function Home() {
           </ScrollAnimation>
         </div>
 
-        <div className="absolute bottom-32 left-0 right-0 flex justify-center z-20">
-          <Button size="lg" className="h-12 px-8 text-base bg-white text-primary-foreground hover:bg-white/90 rounded-full shadow-lg hover:shadow-white/20 transition-all uppercase tracking-wide font-semibold" asChild>
+        <ScrollAnimation
+          className="absolute bottom-32 left-0 right-0 flex justify-center z-20"
+          delay={0.5}
+        >
+          {/* <motion.div
+            animate={{
+              scale: [1, 1.05, 1],
+              boxShadow: [
+                "0 0 0 0 rgba(255, 255, 255, 0)",
+                "0 0 0 10px rgba(255, 255, 255, 0.1)",
+                "0 0 0 0 rgba(255, 255, 255, 0)"
+              ]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "loop"
+            }}
+            className="rounded-full"
+          > */}
+          <Button size="lg" className="h-14 px-10 text-lg bg-white text-primary-foreground hover:bg-white/90 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all uppercase tracking-widest font-bold" asChild>
             <Link href="/courses">
-              Begin Your Chapter <ChevronRight className="ml-2 h-4 w-4" />
+              Begin Your Chapter <ChevronRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-        </div>
+          {/* </motion.div> */}
+        </ScrollAnimation>
+
       </section>
 
       {/* 2. The Context / Wicked Problem */}
-      <section className="py-20 px-6 bg-background/50 backdrop-blur-sm relative z-10">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 px-6 bg-background/50 backdrop-blur-sm relative z-10 overflow-hidden">
+        {/* Danger Zone Ambient Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1000px] bg-red-900/20 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="absolute inset-0 border-y border-red-500/10 pointer-events-none md:hidden"></div> {/* Mobile border hint */}
+
+        <div className="max-w-6xl mx-auto relative z-10">
           <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
             <div className="mb-16 max-w-3xl mx-auto text-center">
               <div className="inline-block px-3 py-1 rounded-full border border-primary/20 bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase mb-4">
@@ -93,7 +118,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* The Employability Paradox */}
             <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
-              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 hover:bg-secondary/20 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 cursor-default group">
+              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 shadow-[0_0_40px_-10px_rgba(220,38,38,0.2)] hover:shadow-[0_0_50px_-5px_rgba(220,38,38,0.4)] hover:-translate-y-2 transition-all duration-300 cursor-default group">
                 <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
                   <TrendingDown className="w-6 h-6 text-red-500" />
                   The Employability Paradox
@@ -121,7 +146,7 @@ export default function Home() {
 
             {/* Why it's Wicked - Condensed */}
             <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS} delay={0.1}>
-              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 hover:bg-secondary/20 hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-300 cursor-default flex flex-col justify-center group">
+              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 shadow-[0_0_40px_-10px_rgba(220,38,38,0.2)] hover:shadow-[0_0_50px_-5px_rgba(220,38,38,0.4)] hover:-translate-y-2 transition-all duration-300 cursor-default flex flex-col justify-center group">
                 <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
                   <AlertTriangle className="w-6 h-6 text-amber-500" />
                   Why it's "Wicked"
@@ -146,44 +171,61 @@ export default function Home() {
       </section>
 
       {/* 3. Video Placeholder (New) */}
-      <section className="h-screen bg-transparent flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/50 transition-colors"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-24 h-24 rounded-full bg-primary/90 flex items-center justify-center pl-1 shadow-lg cursor-pointer hover:scale-110 transition-transform">
-            <div className="w-0 h-0 border-t-[14px] border-t-transparent border-l-[24px] border-l-white border-b-[14px] border-b-transparent"></div>
-          </div>
-        </div>
-        <div className="absolute bottom-10 text-center w-full">
-          <span className="text-lg font-bold bg-black/60 px-6 py-2 rounded-full text-white backdrop-blur-sm border border-white/10">Watch Our Vision</span>
-        </div>
+      {/* 3. Video Placeholder (New) */}
+      <section className="h-screen bg-black flex items-center justify-center relative overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/sample_video.mp4" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
       </section>
 
       {/* 4. AI & Automation Filter */}
       <section className="py-20 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
-            <div className="bg-black/40 backdrop-blur-xl text-white p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden group hover:scale-[1.01] transition-transform duration-500">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-primary/20 transition-colors"></div>
+            <div className="relative">
+              {/* Brain Logo Overlay - Moved outside to escape overflow-hidden */}
+              <div
+                className="absolute -top-16 -right-16 z-50 w-48 h-48 animate-float"
+                style={{ filter: "drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))" }}
+              >
+                <img
+                  src="/ai-brain-logo.png"
+                  alt="AI Brain"
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
-              <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
-                <div className="md:col-span-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-blue-200 text-xs font-medium mb-4">
-                    <Monitor className="w-3 h-3" /> 2025 Reality
+              <div className="bg-black/40 backdrop-blur-xl text-white p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden group hover:scale-[1.01] transition-transform duration-500">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-primary/20 transition-colors"></div>
+
+                <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
+                  <div className="md:col-span-2">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-blue-200 text-xs font-medium mb-4">
+                      <Monitor className="w-3 h-3" /> 2025 Reality
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4">The AI & Automation Filter</h3>
+                    <p className="text-slate-300 leading-relaxed mb-6">
+                      Artificial Intelligence has permanently raised the bar. Traditional "bottom-rung" roles (basic coding, data entry) are being automated. The industry no longer needs "code labourers"; it needs "problem solvers".
+                    </p>
+                    <p className="text-sm font-semibold text-white">
+                      Competitors prefer a fresher who knows Python/LLMs over someone they have to train for 6 months.
+                    </p>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">The AI & Automation Filter</h3>
-                  <p className="text-slate-300 leading-relaxed mb-6">
-                    Artificial Intelligence has permanently raised the bar. Traditional "bottom-rung" roles (basic coding, data entry) are being automated. The industry no longer needs "code labourers"; it needs "problem solvers".
-                  </p>
-                  <p className="text-sm font-semibold text-white">
-                    Competitors prefer a fresher who knows Python/LLMs over someone they have to train for 6 months.
-                  </p>
-                </div>
-                <div className="bg-[#003676] backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center shadow-lg">
-                  <div className="text-4xl font-bold text-white mb-1">2.9 Lakh</div>
-                  <div className="text-xs text-blue-200 uppercase tracking-wider mb-4 font-bold">Roles Added by GCCs</div>
-                  <p className="text-sm text-blue-100 leading-tight font-light">
-                    But only for niche skills. Generalist roles are vanishing.
-                  </p>
+                  <div className="bg-[#003676] backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center shadow-lg">
+                    <div className="text-4xl font-bold text-white mb-1">2.9 Lakh</div>
+                    <div className="text-xs text-blue-200 uppercase tracking-wider mb-4 font-bold">Roles Added by GCCs</div>
+                    <p className="text-sm text-blue-100 leading-tight font-light">
+                      But only for niche skills. Generalist roles are vanishing.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

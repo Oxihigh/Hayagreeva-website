@@ -1,0 +1,21 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brain shape -->
+  <path d="M40 100C40 60 70 30 100 30C130 30 160 60 160 100C160 120 150 140 135 150C130 160 120 165 110 165H90C80 165 70 160 65 150C50 140 40 120 40 100Z" fill="#3B82F6"/>
+  <path d="M45 95C45 65 70 40 100 40C130 40 155 65 155 95" stroke="#60A5FA" stroke-width="5" stroke-linecap="round"/>
+  
+  <!-- Brain convolutions details -->
+  <path d="M70 60C80 50 90 70 100 60C110 50 130 60 130 80" stroke="#1D4ED8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M60 90C70 80 80 100 90 90" stroke="#1D4ED8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M110 90C120 100 130 80 140 90" stroke="#1D4ED8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  
+  <!-- Glasses -->
+  <circle cx="75" cy="110" r="25" stroke="black" stroke-width="8" fill="white" fill-opacity="0.2"/>
+  <circle cx="125" cy="110" r="25" stroke="black" stroke-width="8" fill="white" fill-opacity="0.2"/>
+  <line x1="100" y1="110" x2="100" y2="110" stroke="black" stroke-width="8" stroke-linecap="round"/> <!-- Bridge -->
+  <path d="M50 110L30 100" stroke="black" stroke-width="6" stroke-linecap="round"/>
+  <path d="M150 110L170 100" stroke="black" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Eyes (dots) -->
+  <circle cx="80" cy="110" r="5" fill="black"/>
+  <circle cx="120" cy="110" r="5" fill="black"/>
+</svg>
