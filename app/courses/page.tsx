@@ -5,6 +5,7 @@ import { ScrollAnimation } from '@/components/ui/scroll-animation'
 import { ArrowLeft, BookOpen, Brain, Briefcase, Heart, Monitor, CheckCircle, XCircle, Users, Compass, TrendingUp, Zap, Target, Layers } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function CoursesPage() {
   return (
@@ -27,11 +28,11 @@ export default function CoursesPage() {
               className="inline-block"
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-blue-300 drop-shadow-2xl">
-                The Course Curriculum
+                The Next Chapter
               </h1>
             </motion.div>
             <p className="text-xl md:text-2xl text-slate-400 mb-12 font-light max-w-2xl mx-auto">
-              The Next Chapter: <span className="text-white font-medium">Career Alignment & Life Readiness</span>
+              <span className="text-white font-medium">Career Alignment & Life Readiness</span>
             </p>
 
             <div className="max-w-3xl mx-auto">
@@ -117,6 +118,67 @@ export default function CoursesPage() {
           </ScrollAnimation>
         </section>
 
+        {/* B2B Model Journey */}
+        <section className="mb-32 relative">
+          <ScrollAnimation>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4 text-white">The B2B Institutional Journey</h2>
+              <p className="text-slate-400">Partnering with colleges to transform entire cohorts.</p>
+            </div>
+
+            {/* Desktop View - Image */}
+            <div className="hidden md:block relative w-full mt-12 px-4">
+              <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <Image
+                  src="/The B2B Institutional Journey - visual selection.png"
+                  alt="The B2B Institutional Journey Diagram"
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Mobile View (Vertical Stack) */}
+            <div className="md:hidden space-y-12 relative pl-8 border-l-2 border-primary/20 ml-4 mt-12">
+              {[
+                { title: "Unprepared Graduates", desc: "Lacking essential workforce skills.", icon: Brain, color: "text-slate-400", bg: "from-slate-500/20" },
+                { title: "Consultation", desc: "Alignment with academic calendar.", icon: Layers, color: "text-blue-400", bg: "from-blue-500/20" },
+                { title: "Integration", desc: "Seamless on-campus delivery.", icon: Zap, color: "text-purple-400", bg: "from-purple-500/20" },
+                { title: "Selection", desc: "Curating committed groups.", icon: Users, color: "text-pink-400", bg: "from-pink-500/20" },
+                { title: "Workforce Ready", desc: "Possessing essential skills.", icon: Target, color: "text-emerald-400", bg: "from-emerald-500/20" }
+              ].map((item, i) => (
+                <div key={i} className="relative">
+                  <div className={`absolute -left-[41px] top-0 w-5 h-5 rounded-full border-4 border-black bg-${item.color.split('-')[1]}-500`}></div>
+                  <div className="flex gap-4">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.bg} to-transparent border border-white/10 flex items-center justify-center shrink-0`}>
+                      <item.icon className={`w-8 h-8 ${item.color}`} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
+                      <p className="text-slate-400 text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollAnimation>
+        </section>
+
+        {/* Video Placeholder */}
+        <section className="h-[60vh] md:h-screen w-full bg-transparent flex items-center justify-center relative overflow-hidden mb-32 rounded-3xl border border-white/5">
+          <div className="absolute inset-0 bg-black/50 transition-colors"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-24 h-24 rounded-full bg-primary/90 flex items-center justify-center pl-1 shadow-lg cursor-pointer hover:scale-110 transition-transform hover:shadow-primary/50">
+              <div className="w-0 h-0 border-t-[14px] border-t-transparent border-l-[24px] border-l-white border-b-[14px] border-b-transparent"></div>
+            </div>
+          </div>
+          <div className="absolute bottom-10 text-center w-full">
+            <span className="text-lg font-bold bg-black/60 px-6 py-2 rounded-full text-white backdrop-blur-sm border border-white/10">Watch Our Curriculum in Action</span>
+          </div>
+        </section>
+
         {/* The "Anti-Motivational" Philosophy */}
         <section className="mb-32">
           <ScrollAnimation>
@@ -167,36 +229,6 @@ export default function CoursesPage() {
           </ScrollAnimation>
         </section>
 
-        {/* B2B Model Journey */}
-        <section className="mb-32">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4 text-white">The B2B Institutional Journey</h2>
-              <p className="text-slate-400">Partnering with colleges to transform entire cohorts.</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-              {/* Connecting Line (Desktop) */}
-              <div className="hidden md:block absolute top-[28px] left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20 -z-10"></div>
-
-              {[
-                { step: "01", title: "Consultation", desc: "Alignment with academic calendar." },
-                { step: "02", title: "Integration", desc: "Seamless on-campus delivery." },
-                { step: "03", title: "Selection", desc: "Curating committed groups." },
-                { step: "04", title: "Outcome", desc: "Day-one workforce ready." }
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center text-center group">
-                  <div className="w-14 h-14 rounded-full bg-black/20 border-4 border-primary/20 flex items-center justify-center font-bold text-primary mb-6 group-hover:scale-110 group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] transition-all duration-300 z-10 backdrop-blur-md">
-                    {item.step}
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-slate-400">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </ScrollAnimation>
-        </section>
-
         {/* Call to Action */}
         <ScrollAnimation>
           <div className="relative rounded-3xl overflow-hidden p-12 text-center border border-white/10">
@@ -222,7 +254,6 @@ export default function CoursesPage() {
             </div>
           </div>
         </ScrollAnimation>
-
       </main>
     </div>
   )
