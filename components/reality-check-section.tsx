@@ -4,7 +4,11 @@ import { motion } from 'framer-motion'
 import { AlertTriangle, CheckCircle, ShieldCheck, XCircle, Activity, Zap } from 'lucide-react'
 import { useState } from 'react'
 
-export function RealityCheckSection() {
+interface RealityCheckSectionProps {
+    lightMode?: boolean
+}
+
+export function RealityCheckSection({ lightMode = false }: RealityCheckSectionProps) {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
     const anomalies = [
@@ -23,17 +27,17 @@ export function RealityCheckSection() {
 
     return (
         <section className="mb-32 relative">
-            <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px] -z-10" />
+            <div className={`absolute inset-0 ${lightMode ? 'bg-grid-black/[0.05]' : 'bg-grid-white/[0.02]'} bg-[size:50px_50px] -z-10`} />
 
             <div className="text-center mb-10 relative font-['Helvetica']">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">The "Anti-Motivational" Philosophy</h2>
-                <p className="text-slate-400 text-sm">We don't sell dreams. We build competence.</p>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-2 ${lightMode ? 'text-[#003676]' : 'text-white'}`}>The "Anti-Motivational" Philosophy</h2>
+                <p className={`${lightMode ? 'text-slate-600' : 'text-slate-400'} text-sm`}>We don't sell dreams. We build competence.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto relative">
 
                 {/* Connecting Lines (Desktop only) */}
-                <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-slate-700 to-transparent hidden md:block" />
+                <div className={`absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent ${lightMode ? 'via-slate-300' : 'via-slate-700'} to-transparent hidden md:block`} />
 
                 {/* Left Side: Anomalies (Red) */}
                 <div className="space-y-4 relative font-['Helvetica']">
@@ -54,17 +58,17 @@ export function RealityCheckSection() {
                                 className={`p-4 rounded-lg border transition-all duration-300 relative overflow-hidden group cursor-default
                   ${hoveredIndex === i
                                         ? 'bg-red-950/40 border-red-500/50 shadow-[0_0_20px_-5px_rgba(239,68,68,0.3)]'
-                                        : 'bg-red-950/10 border-red-500/10 hover:border-red-500/30'
+                                        : lightMode ? 'bg-red-50 border-red-200 hover:border-red-300' : 'bg-red-950/10 border-red-500/10 hover:border-red-500/30'
                                     }`}
                             >
                                 {/* Glitch Effect bars */}
                                 <div className={`absolute left-0 top-0 bottom-0 w-1 bg-red-500 transition-opacity duration-300 ${hoveredIndex === i ? 'opacity-100' : 'opacity-0'}`} />
 
-                                <h4 className="text-base font-bold text-red-400 mb-0.5 flex items-center justify-between">
+                                <h4 className={`text-base font-bold ${lightMode ? 'text-red-600' : 'text-red-400'} mb-0.5 flex items-center justify-between`}>
                                     {item.title}
                                     {hoveredIndex === i && <XCircle className="w-3.5 h-3.5 text-red-500" />}
                                 </h4>
-                                <p className="text-xs text-red-200/60">{item.desc}</p>
+                                <p className={`text-xs ${lightMode ? 'text-red-700/70' : 'text-red-200/60'}`}>{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -87,7 +91,7 @@ export function RealityCheckSection() {
                                 className={`p-4 rounded-lg border transition-all duration-300 relative overflow-hidden
                   ${hoveredIndex === i
                                         ? 'bg-emerald-950/40 border-emerald-500/50 scale-[1.02] shadow-[0_0_20px_-5px_rgba(16,185,129,0.3)]'
-                                        : 'bg-emerald-950/10 border-emerald-500/10'
+                                        : lightMode ? 'bg-emerald-50 border-emerald-200' : 'bg-emerald-950/10 border-emerald-500/10'
                                     }`}
                             >
                                 {/* Connection Beam Effect */}
@@ -97,11 +101,11 @@ export function RealityCheckSection() {
 
                                 <div className={`absolute left-0 top-0 bottom-0 w-1 bg-emerald-500 transition-opacity duration-300 ${hoveredIndex === i ? 'opacity-100' : 'opacity-0'}`} />
 
-                                <h4 className="text-base font-bold text-emerald-400 mb-0.5 flex items-center justify-between">
+                                <h4 className={`text-base font-bold ${lightMode ? 'text-emerald-600' : 'text-emerald-400'} mb-0.5 flex items-center justify-between`}>
                                     {item.title}
                                     {hoveredIndex === i && <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />}
                                 </h4>
-                                <p className="text-xs text-emerald-200/60">{item.desc}</p>
+                                <p className={`text-xs ${lightMode ? 'text-emerald-700/70' : 'text-emerald-200/60'}`}>{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
