@@ -17,7 +17,7 @@ export function ScrollAnimation({
   delay = 0,
   duration = 0.5,
   direction = 'up',
-  viewport = { once: false, amount: 0.3, margin: '0px 0px -100px 0px' },
+  viewport = { once: false, amount: 0.1, margin: '0px 0px 0px 0px' },
   disableAnimation = false,
 }: ScrollAnimationProps) {
   const ref = useRef(null)

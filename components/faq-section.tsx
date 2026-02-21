@@ -13,7 +13,7 @@ export function FAQSection() {
   const faqs = [
     {
       question: "Is this a placement agency?",
-      answer: "No. We are a career alignment and life readiness organization. While we prepare you extensively for placements by building your skills, character, and professional behavior, we do not guarantee jobs. We guarantee capability."
+      answer: "We are a career alignment and life readiness organization. Our mission is not just to prepare you for placements, but to shape you into a capable, confident, and industry-ready professional. We promise something far more valuable — capability.Because when you are truly capable, opportunities follow."
     },
     {
       question: "Who is this program for?",
@@ -48,7 +48,7 @@ export function FAQSection() {
           </div>
         </ScrollAnimation>
 
-        <ScrollAnimation delay={0.1}>
+        <ScrollAnimation delay={0}>
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border-b border-border/50">

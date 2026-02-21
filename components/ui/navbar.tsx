@@ -16,7 +16,7 @@ export function Navbar() {
             <div className="flex items-center justify-between px-6 py-3 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg ring-1 ring-white/5">
                 <Link
                     href="/"
-                    className="flex items-center gap-2 bg-white px-2 py-1 rounded-[20px]"
+                    className="flex items-center gap-2 bg-white px-2 py-1 rounded-[25px]"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
                     <Image

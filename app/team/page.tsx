@@ -19,19 +19,18 @@ export default function TeamPage() {
 
                 {/* Hero Section */}
                 <ScrollAnimation delay={0.1}>
-                    <div className="text-center mb-24 relative">
+                    <div className="text-center mb-24 mt-12 md:mt-20 relative">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-cyan-400 drop-shadow-2xl">
-                                Our Mentor Standards
+                            <h1 className="text-3xl md:text-5xl font-bold pb-2 tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-cyan-400 drop-shadow-2xl">
+                                <span className="font-serif italic font-light text-blue-200">Practitioners!</span> Not just Professors.
                             </h1>
                         </motion.div>
-                        <p className="text-xl md:text-2xl text-slate-400 mb-12 font-light max-w-4xl mx-auto">
-                            <span className="md:whitespace-nowrap">We believe that students should only learn from those who have truly "been there".</span><br />
-                            <span className="text-white font-medium">Practitioners! not just Professors.</span>
+                        <p className="text-xl md:text-2xl text-slate-400 mb-8 font-light max-w-4xl mx-auto">
+                            <span className="md:whitespace-nowrap">We believe that students should only learn from those who have truly "been there".</span>
                         </p>
                     </div>
                 </ScrollAnimation>
@@ -39,6 +38,7 @@ export default function TeamPage() {
                 {/* Standards Grid */}
                 <section className="mb-32">
                     <ScrollAnimation>
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-16">Our Mentor Standards</h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {[
                                 {

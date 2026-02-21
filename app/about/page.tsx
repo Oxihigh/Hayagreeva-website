@@ -8,6 +8,8 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 export default function AboutPage() {
+    const DISABLE_ANIMATIONS = true;
+
     return (
         <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
             {/* Background Effects */}
@@ -19,12 +21,12 @@ export default function AboutPage() {
             <main className="max-w-4xl mx-auto px-6 pt-24 pb-12 relative z-10">
 
                 {/* Hero Section */}
-                <ScrollAnimation delay={0.1}>
+                <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS} delay={0.1}>
                     <div className="text-center mb-24 relative min-h-[60vh] flex flex-col justify-center">
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={DISABLE_ANIMATIONS ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: DISABLE_ANIMATIONS ? 0 : 0.8 }}
                         >
                             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-cyan-400 drop-shadow-2xl">
                                 Bridging the Gap Between<br className="md:hidden" /> <span className="whitespace-nowrap"><span className="text-white">Education</span> & <span className="text-white">Employability</span></span>
@@ -38,7 +40,7 @@ export default function AboutPage() {
 
                 {/* Our Story */}
                 <section className="mb-24">
-                    <ScrollAnimation>
+                    <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
                         <div className="bg-secondary/10 border border-white/5 rounded-2xl p-8 md:p-12 backdrop-blur-sm hover:bg-secondary/20 transition-colors duration-300">
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3">
                                 <Lightbulb className="w-8 h-8 text-yellow-400" />
@@ -58,7 +60,7 @@ export default function AboutPage() {
 
                 {/* Mission & Vision */}
                 <section className="grid md:grid-cols-2 gap-8 mb-24">
-                    <ScrollAnimation delay={0.1}>
+                    <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS} delay={0.1}>
                         <div className="h-full p-8 border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 bg-gradient-to-br from-background to-secondary/5 hover:-translate-y-2 hover:shadow-xl group">
                             <div className="w-16 h-16 rounded-xl bg-red-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <Target className="w-8 h-8 text-red-500" />
@@ -69,7 +71,7 @@ export default function AboutPage() {
                             </p>
                         </div>
                     </ScrollAnimation>
-                    <ScrollAnimation delay={0.2}>
+                    <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS} delay={0.2}>
                         <div className="h-full p-8 border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 bg-gradient-to-br from-background to-secondary/5 hover:-translate-y-2 hover:shadow-xl group">
                             <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <Compass className="w-8 h-8 text-primary" />
@@ -84,7 +86,7 @@ export default function AboutPage() {
 
                 {/* Core Values */}
                 <section className="mb-24">
-                    <ScrollAnimation>
+                    <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
                         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Core Values</h2>
                         <div className="grid md:grid-cols-3 gap-6">
                             {[
@@ -124,7 +126,7 @@ export default function AboutPage() {
 
                 {/* The Name */}
                 <section className="mb-24">
-                    <ScrollAnimation>
+                    <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
                         <div className="flex flex-col md:flex-row items-center gap-10">
                             <div className="flex-1">
                                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Why "Hayagreeva"?</h2>
@@ -143,7 +145,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* CTA */}
-                <ScrollAnimation>
+                <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
                     <div className="relative rounded-3xl overflow-hidden p-12 text-center border border-white/10">
                         {/* Glass Background */}
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-md -z-10"></div>

@@ -27,7 +27,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="bg-background text-foreground overflow-hidden relative">
+    <div className="bg-[#003072] text-foreground overflow-hidden relative">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
@@ -97,7 +97,7 @@ export default function Home() {
       </section>
 
       {/* 2. The Context / Wicked Problem */}
-      <section className="py-20 px-6 bg-background/50 backdrop-blur-sm relative z-10 overflow-hidden">
+      <section className="py-20 px-6 bg-[#02204a]/50 backdrop-blur-sm relative z-10 overflow-hidden">
         {/* Danger Zone Ambient Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1000px] bg-red-900/20 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="absolute inset-0 border-y border-red-500/10 pointer-events-none md:hidden"></div> {/* Mobile border hint */}
@@ -118,13 +118,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* The Employability Paradox */}
             <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
-              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 shadow-[0_0_40px_-10px_rgba(220,38,38,0.2)] hover:shadow-[0_0_50px_-5px_rgba(220,38,38,0.4)] hover:-translate-y-2 transition-all duration-300 cursor-default group">
+              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 shadow-[0_0_40px_-10px_rgba(220,38,38,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:-translate-y-2 transition-all duration-300 cursor-default group">
                 <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
                   <TrendingDown className="w-6 h-6 text-red-500" />
                   The Employability Paradox
                 </h3>
                 <div className="space-y-6">
-                  <div className="p-4 bg-background/50 rounded-xl border border-border shadow-sm">
+                  <div className="p-4 bg-[#003072]/50 rounded-xl border border-border shadow-sm">
                     <h4 className="font-semibold mb-2 flex items-center gap-2 text-foreground text-lg">
                       <Users className="w-4 h-4 text-primary" /> Engineering Crisis
                     </h4>
@@ -132,7 +132,7 @@ export default function Home() {
                       1.5 million engineers graduate annually, but <strong>only 10-17% are hired into core roles</strong>. The rest are underemployed or unemployed.
                     </p>
                   </div>
-                  <div className="p-4 bg-background/50 rounded-xl border border-border shadow-sm">
+                  <div className="p-4 bg-[#003072]/50 rounded-xl border border-border shadow-sm">
                     <h4 className="font-semibold mb-2 flex items-center gap-2 text-foreground text-lg">
                       <TrendingDown className="w-4 h-4 text-red-500" /> Hiring Decline
                     </h4>
@@ -146,7 +146,7 @@ export default function Home() {
 
             {/* Why it's Wicked - Condensed */}
             <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS} delay={0.1}>
-              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 shadow-[0_0_40px_-10px_rgba(220,38,38,0.2)] hover:shadow-[0_0_50px_-5px_rgba(220,38,38,0.4)] hover:-translate-y-2 transition-all duration-300 cursor-default flex flex-col justify-center group">
+              <div className="h-full border border-border p-8 rounded-2xl bg-secondary/10 shadow-[0_0_40px_-10px_rgba(220,38,38,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:-translate-y-2 transition-all duration-300 cursor-default flex flex-col justify-center group">
                 <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
                   <AlertTriangle className="w-6 h-6 text-amber-500" />
                   Why it's "Wicked"
@@ -190,11 +190,11 @@ export default function Home() {
       <section className="py-20 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
-            <div className="relative">
+            <div className="relative mt-8">
               {/* Brain Logo Overlay - Moved outside to escape overflow-hidden */}
               <div
-                className="absolute -top-16 -right-16 z-50 w-48 h-48 animate-float"
-                style={{ filter: "drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))" }}
+                className="absolute -top-12 -right-8 z-50 w-32 h-32 animate-float"
+                style={{ filter: "drop-shadow(0 0 15px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 3px #fff) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))" }}
               >
                 <img
                   src="/ai-brain-logo.png"
@@ -209,14 +209,14 @@ export default function Home() {
                 <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
                   <div className="md:col-span-2">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-blue-200 text-xs font-medium mb-4">
-                      <Monitor className="w-3 h-3" /> 2025 Reality
+                      <Monitor className="w-3 h-3" /> 2026 Reality
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">The AI & Automation Filter</h3>
                     <p className="text-slate-300 leading-relaxed mb-6">
-                      Artificial Intelligence has permanently raised the bar. Traditional "bottom-rung" roles (basic coding, data entry) are being automated. The industry no longer needs "code labourers"; it needs "problem solvers".
+                      Artificial Intelligence has permanently raised the bar. Traditional "bottom-rung" roles (basic coding, data entry) are being automated. The industry no longer needs "code labourers", it needs "problem solvers" & "industry-ready professionals".
                     </p>
                     <p className="text-sm font-semibold text-white">
-                      Competitors prefer a fresher who knows Python/LLMs over someone they have to train for 6 months.
+                      Recruiters prefer market ready and qualified candidates over someone they have to train for 6 months.
                     </p>
                   </div>
                   <div className="bg-[#003676] backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center shadow-lg">
@@ -238,13 +238,13 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
         <div className="max-w-4xl mx-auto relative z-10">
           <ScrollAnimation disableAnimation={DISABLE_ANIMATIONS}>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-[3.0] tracking-tight">
-              Built by people who take responsibility for shaping young minds seriously.
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-[3px] tracking-tight">
+              Built by people who take responsibility for shaping young minds seriously
             </h2>
             <p className="text-lg md:text-xl text-blue-100/80 mb-10 max-w-2xl mx-auto font-light">
               We invite colleges and mentors who value integrity to explore a meaningful professional association with us.
             </p>
-            <Button size="lg" className="h-14 px-10 text-base bg-white text-primary-foreground hover:bg-blue-50 transition-all font-bold tracking-wide rounded-full shadow-2xl hover:scale-105" asChild>
+            <Button size="lg" className="h-14 px-10 text-lg bg-white text-primary-foreground hover:bg-white/90 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all uppercase tracking-widest font-bold" asChild>
               <Link href="mailto:contact@hayagreeva.com">Connect for Partnership</Link>
             </Button>
           </ScrollAnimation>

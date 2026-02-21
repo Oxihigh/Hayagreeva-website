@@ -38,7 +38,7 @@ export function B2BAnimatedFlow() {
 
             <div className="relative max-w-7xl mx-auto px-4">
                 {/* Desktop View (Horizontal) */}
-                <div className="hidden md:block relative h-[400px]">
+                <div className="hidden md:block relative h-[400px] mb-48">
                     {/* Connecting Line Container */}
                     <div className="absolute top-0 left-0 w-full h-full overflow-visible z-0 pointer-events-none">
 

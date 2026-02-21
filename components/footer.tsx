@@ -100,24 +100,22 @@ export function Footer() {
                         <div>
                             <h5 className="font-bold mb-4 text-white">Call Us</h5>
                             <p className="text-sm text-slate-400">
-                                +91 6361163390
+                                +91 9071160399
                             </p>
                         </div>
                         {/* Email Us */}
                         <div>
                             <h5 className="font-bold mb-4 text-white">Email Us</h5>
                             <p className="text-sm text-slate-400">
-                                contact@hayagreeva.com
+                                bareddys.pvt.ltd.hr@gmail.com
                             </p>
                         </div>
                         {/* Follow Us */}
                         <div className="flex flex-col items-start lg:items-end">
                             <h5 className="font-bold mb-4 text-white">Follow Us</h5>
                             <div className="flex gap-4">
-                                <SocialLink href="#" icon={<Youtube className="h-5 w-5" />} />
-                                <SocialLink href="#" icon={<Instagram className="h-5 w-5" />} />
-                                <SocialLink href="#" icon={<Facebook className="h-5 w-5" />} />
-                                <SocialLink href="#" icon={<Linkedin className="h-5 w-5" />} />
+
+                                <SocialLink href="https://www.linkedin.com/company/bareddys-pvt-ltd" icon={<Linkedin className="h-5 w-5" />} />
                             </div>
                         </div>
                     </div>
